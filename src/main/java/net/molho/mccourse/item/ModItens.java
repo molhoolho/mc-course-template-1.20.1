@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.molho.mccourse.MCCourse;
+import net.molho.mccourse.blocks.ModBlocks;
 
 public class ModItens {
 
@@ -27,6 +28,9 @@ public class ModItens {
     private static void itemGroupIngredient(FabricItemGroupEntries entries){
         entries.add(PINK_GARNET);
         entries.add(RAW_PINK_GARNET);
+
+        entries.add(ModBlocks.PINK_GARNET_BLOCK);
+        entries.add(ModBlocks.RAW_PINK_GARNET_BLOCK);
     }
 
     //Other facilitator
