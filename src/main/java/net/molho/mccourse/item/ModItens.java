@@ -24,13 +24,9 @@ public class ModItens {
         return Registry.register(Registries.ITEM, new Identifier(MCCourse.MOD_ID, name), item);
     }
 
-    //Entry the created item
+    //Entry the created item in Ingredients window
     private static void itemGroupIngredient(FabricItemGroupEntries entries){
-        entries.add(PINK_GARNET);
-        entries.add(RAW_PINK_GARNET);
 
-        entries.add(ModBlocks.PINK_GARNET_BLOCK);
-        entries.add(ModBlocks.RAW_PINK_GARNET_BLOCK);
     }
 
     //Other facilitator

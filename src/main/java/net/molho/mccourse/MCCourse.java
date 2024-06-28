@@ -3,6 +3,7 @@ package net.molho.mccourse;
 import net.fabricmc.api.ModInitializer;
 
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.item.ModItemGroup;
 import net.molho.mccourse.item.ModItens;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ public class MCCourse implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		//Use for make the itens up on the game
+		ModItemGroup.registerItemGroups();
 		ModItens.registerModItens();
 		ModBlocks.registerModBlocks();
 	}
