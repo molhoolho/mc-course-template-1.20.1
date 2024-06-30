@@ -22,12 +22,20 @@ public class ModItemGroup {
                         entries.add(ModItens.PINK_GARNET);
                         entries.add(ModItens.RAW_PINK_GARNET);
 
+                        entries.add(ModItens.CAULIFLOWER);
+
+
+                        entries.add(ModItens.PEAT_BRICK);
+
+                        entries.add(ModItens.METAL_DETECTOR);
+
                         entries.add(ModBlocks.PINK_GARNET_BLOCK);
                         entries.add(ModBlocks.RAW_PINK_GARNET_BLOCK);
                         entries.add(ModBlocks.PINK_GARNET_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PINK_GARNET_ORE);
                         entries.add(ModBlocks.NETHER_PINK_GARNET_ORE);
                         entries.add(ModBlocks.END_PINK_GARNET_ORE);
+                        entries.add(ModBlocks.SOUND_BLOCK);
                     }).build());
 
     public static void registerItemGroups(){

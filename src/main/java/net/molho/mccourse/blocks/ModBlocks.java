@@ -12,6 +12,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.molho.mccourse.MCCourse;
+import net.molho.mccourse.blocks.custom.SoundBlock;
 
 public class ModBlocks {
 
@@ -19,6 +20,9 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block RAW_PINK_GARNET_BLOCK = registerBlock("raw_pink_garnet_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+
+    public static final Block SOUND_BLOCK = registerBlock("sound_block",
+            new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
 
 
     public static final Block PINK_GARNET_ORE = registerBlock("pink_garnet_ore",

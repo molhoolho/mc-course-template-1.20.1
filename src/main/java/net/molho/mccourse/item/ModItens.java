@@ -10,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.molho.mccourse.MCCourse;
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.item.custom.MetalDetectorItem;
 
 public class ModItens {
 
@@ -17,6 +18,15 @@ public class ModItens {
     public static final Item PINK_GARNET = registerItem("pink_garnet",
             new Item(new FabricItemSettings()));
     public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet",
+            new Item(new FabricItemSettings()));
+
+    public static final Item METAL_DETECTOR = registerItem("metal_detector",
+            new MetalDetectorItem(new FabricItemSettings().maxDamage(256)));
+
+    public static final Item CAULIFLOWER = registerItem("cauliflower",
+            new Item(new FabricItemSettings().food(ModFoodComponents.CAULIFLOWER)));
+
+    public static final Item PEAT_BRICK = registerItem("peat_brick",
             new Item(new FabricItemSettings()));
 
     //One of facilitators
