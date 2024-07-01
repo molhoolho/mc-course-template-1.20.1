@@ -3,6 +3,7 @@ package net.molho.mccourse;
 import net.fabricmc.api.ModInitializer;
 
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.enchantment.ModEnchantments;
 import net.molho.mccourse.item.ModItemGroup;
 import net.molho.mccourse.item.ModItens;
 import net.molho.mccourse.util.ModRegistries;
@@ -19,6 +20,7 @@ public class MCCourse implements ModInitializer {
 		ModItemGroup.registerItemGroups();
 		ModItens.registerModItens();
 		ModBlocks.registerModBlocks();
+		ModEnchantments.registerModEnchantments();
 
 		ModRegistries.registerModStuffs();
 	}

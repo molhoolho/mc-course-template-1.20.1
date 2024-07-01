@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -11,6 +12,7 @@ import net.minecraft.util.Identifier;
 import net.molho.mccourse.blocks.ModBlocks;
 import net.molho.mccourse.item.ModItens;
 
+import java.awt.*;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -42,7 +44,17 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         ModBlocks.NETHER_PINK_GARNET_ORE, ModBlocks.END_PINK_GARNET_ORE), RecipeCategory.MISC, ModItens.PINK_GARNET,
                 0.25f, 200, "pink_garnet");
         offerBlasting(exporter, List.of(ModItens.RAW_PINK_GARNET, ModBlocks.PINK_GARNET_ORE, ModBlocks.DEEPSLATE_PINK_GARNET_ORE,
-                        ModBlocks.NETHER_PINK_GARNET_ORE, ModBlocks.END_PINK_GARNET_ORE), RecipeCategory.MISC, ModItens.PINK_GARNET,
+                        ModBlocks.NETHER_PINK_GARNET_ORE, ModBlocks .END_PINK_GARNET_ORE), RecipeCategory.MISC, ModItens.PINK_GARNET,
                 0.25f, 200, "pink_garnet");
+
+
+        offerPressurePlateRecipe(exporter, ModBlocks.PINK_GARNET_PRESSURE_PLATE, ModItens.PINK_GARNET);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_BUTTON)
+                .input(ModItens.PINK_GARNET)
+                .criterion(hasItem(ModItens.PINK_GARNET), conditionsFromItem(ModItens.PINK_GARNET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.PINK_GARNET_BUTTON)));
+
+        offerWallRecipe(exporter, RecipeCategory.MISC, ModBlocks.PINK_GARNET_WALL, ModItens.PINK_GARNET);
     }
 }

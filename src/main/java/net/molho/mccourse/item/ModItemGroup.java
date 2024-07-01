@@ -31,15 +31,39 @@ public class ModItemGroup {
 
                         entries.add(ModBlocks.PINK_GARNET_BLOCK);
                         entries.add(ModBlocks.PINK_GARNET_STAIRS);
+                        entries.add(ModBlocks.PINK_GARNET_BUTTON);
+                        entries.add(ModBlocks.PINK_GARNET_PRESSURE_PLATE);
                         entries.add(ModBlocks.PINK_GARNET_SLAB);
+                        entries.add(ModBlocks.PINK_GARNET_FENCE);
+                        entries.add(ModBlocks.PINK_GARNET_FENCE_GATE);
+                        entries.add(ModBlocks.PINK_GARNET_WALL);
+                        entries.add(ModBlocks.PINK_GARNET_DOOR);
+                        entries.add(ModBlocks.PINK_GARNET_TRAPDOOR);
                         entries.add(ModBlocks.RAW_PINK_GARNET_BLOCK);
 
-                        
+
                         entries.add(ModBlocks.PINK_GARNET_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PINK_GARNET_ORE);
                         entries.add(ModBlocks.NETHER_PINK_GARNET_ORE);
                         entries.add(ModBlocks.END_PINK_GARNET_ORE);
                         entries.add(ModBlocks.SOUND_BLOCK);
+                        entries.add(ModBlocks.PINK_GARNET_LAMP_BLOCK);
+
+
+                        entries.add(ModItens.PINK_GARNET_HELMET);
+                        entries.add(ModItens.PINK_GARNET_CHESTPLATE);
+                        entries.add(ModItens.PINK_GARNET_LEGGINGS);
+                        entries.add(ModItens.PINK_GARNET_BOOTS);
+
+
+                        entries.add(ModItens.PINK_GARNET_HORSE_ARMOR);
+
+                        entries.add(ModItens.PINK_GARNET_SWORD);
+                        entries.add(ModItens.PINK_GARNET_PICKAXE);
+                        entries.add(ModItens.PINK_GARNET_SHOVEL);
+                        entries.add(ModItens.PINK_GARNET_AXE);
+                        entries.add(ModItens.PINK_GARNET_HOE);
+                        entries.add(ModItens.PINK_GARNET_PAXEL);
                     }).build());
 
     public static void registerItemGroups(){

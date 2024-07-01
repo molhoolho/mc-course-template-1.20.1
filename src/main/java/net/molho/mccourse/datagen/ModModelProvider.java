@@ -2,10 +2,13 @@ package net.molho.mccourse.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.client.*;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.state.property.Properties;
+import net.minecraft.util.Identifier;
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.blocks.custom.PinkGarnetLampBlock;
 import net.molho.mccourse.item.ModItens;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -27,6 +30,24 @@ public class ModModelProvider extends FabricModelProvider {
 
         pinkGarnetTexturePool.stairs(ModBlocks.PINK_GARNET_STAIRS);
         pinkGarnetTexturePool.slab(ModBlocks.PINK_GARNET_SLAB);
+        pinkGarnetTexturePool.button(ModBlocks.PINK_GARNET_BUTTON);
+        pinkGarnetTexturePool.pressurePlate(ModBlocks.PINK_GARNET_PRESSURE_PLATE);
+
+        pinkGarnetTexturePool.fence(ModBlocks.PINK_GARNET_FENCE);
+        pinkGarnetTexturePool.fenceGate(ModBlocks.PINK_GARNET_FENCE_GATE);
+        pinkGarnetTexturePool.wall(ModBlocks.PINK_GARNET_WALL);
+
+        blockStateModelGenerator.registerDoor(ModBlocks.PINK_GARNET_DOOR);
+        blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.PINK_GARNET_TRAPDOOR);
+
+        registerCustomLamp(blockStateModelGenerator);
+    }
+
+    private void registerCustomLamp(BlockStateModelGenerator blockStateModelGenerator) {
+        Identifier identifier = TexturedModel.CUBE_ALL.upload(ModBlocks.PINK_GARNET_LAMP_BLOCK, blockStateModelGenerator.modelCollector);
+        Identifier identifier2 = blockStateModelGenerator.createSubModel(ModBlocks.PINK_GARNET_LAMP_BLOCK, "_on", Models.CUBE_ALL, TextureMap::all);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.PINK_GARNET_LAMP_BLOCK)
+                .coordinate(BlockStateModelGenerator.createBooleanModelMap(PinkGarnetLampBlock.CLICKED, identifier2, identifier)));
     }
 
     @Override
@@ -36,5 +57,23 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItens.CAULIFLOWER, Models.GENERATED);
         itemModelGenerator.register(ModItens.PEAT_BRICK, Models.GENERATED);
         itemModelGenerator.register(ModItens.METAL_DETECTOR, Models.GENERATED);
+
+
+        itemModelGenerator.register(ModItens.PINK_GARNET_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItens.PINK_GARNET_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItens.PINK_GARNET_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItens.PINK_GARNET_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItens.PINK_GARNET_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItens.PINK_GARNET_PAXEL, Models.HANDHELD);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItens.PINK_GARNET_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItens.PINK_GARNET_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItens.PINK_GARNET_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItens.PINK_GARNET_BOOTS);
+
+
+        itemModelGenerator.register(ModItens.PINK_GARNET_HORSE_ARMOR, Models.GENERATED);
     }
+
+
 }
