@@ -8,6 +8,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.blocks.custom.CauliflowerCropBlock;
 import net.molho.mccourse.blocks.custom.PinkGarnetLampBlock;
 import net.molho.mccourse.item.ModItens;
 
@@ -41,6 +42,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerOrientableTrapdoor(ModBlocks.PINK_GARNET_TRAPDOOR);
 
         registerCustomLamp(blockStateModelGenerator);
+
+        blockStateModelGenerator.registerCrop(ModBlocks.CAULIFLOWER_CROP, CauliflowerCropBlock.AGE,0, 1, 2, 3, 4, 5, 6);
     }
 
     private void registerCustomLamp(BlockStateModelGenerator blockStateModelGenerator) {
@@ -57,6 +60,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItens.CAULIFLOWER, Models.GENERATED);
         itemModelGenerator.register(ModItens.PEAT_BRICK, Models.GENERATED);
         itemModelGenerator.register(ModItens.METAL_DETECTOR, Models.GENERATED);
+        //itemModelGenerator.register(ModItens.DATA_TABLET, Models.GENERATED);
 
 
         itemModelGenerator.register(ModItens.PINK_GARNET_SWORD, Models.HANDHELD);

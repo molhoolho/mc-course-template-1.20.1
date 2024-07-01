@@ -23,11 +23,13 @@ public class ModItemGroup {
                         entries.add(ModItens.RAW_PINK_GARNET);
 
                         entries.add(ModItens.CAULIFLOWER);
+                        entries.add(ModItens.CAULIFLOWER_SEEDS);
 
 
                         entries.add(ModItens.PEAT_BRICK);
 
                         entries.add(ModItens.METAL_DETECTOR);
+                        entries.add(ModItens.DATA_TABLET);
 
                         entries.add(ModBlocks.PINK_GARNET_BLOCK);
                         entries.add(ModBlocks.PINK_GARNET_STAIRS);

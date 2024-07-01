@@ -2,7 +2,10 @@ package net.molho.mccourse.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.predicate.StatePredicate;
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.blocks.custom.CauliflowerCropBlock;
 import net.molho.mccourse.item.ModItens;
 
 public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
@@ -30,5 +33,9 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PINK_GARNET_WALL);
         addDrop(ModBlocks.PINK_GARNET_TRAPDOOR);
         addDrop(ModBlocks.PINK_GARNET_DOOR, slabDrops(ModBlocks.PINK_GARNET_DOOR));
+
+        BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(ModBlocks.CAULIFLOWER_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(CauliflowerCropBlock.AGE, 6));
+        this.addDrop(ModBlocks.CAULIFLOWER_CROP, this.cropDrops(ModBlocks.CAULIFLOWER_CROP, ModItens.CAULIFLOWER, ModItens.CAULIFLOWER_SEEDS, builder2));
     }
 }

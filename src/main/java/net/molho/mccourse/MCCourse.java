@@ -23,5 +23,6 @@ public class MCCourse implements ModInitializer {
 		ModEnchantments.registerModEnchantments();
 
 		ModRegistries.registerModStuffs();
+		ModRegistries.registerModCompostable();
 	}
 }

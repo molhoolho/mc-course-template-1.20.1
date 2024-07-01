@@ -11,6 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.molho.mccourse.MCCourse;
+import net.molho.mccourse.blocks.custom.CauliflowerCropBlock;
 import net.molho.mccourse.blocks.custom.PinkGarnetLampBlock;
 import net.molho.mccourse.blocks.custom.SoundBlock;
 
@@ -47,6 +48,9 @@ public class ModBlocks {
             new PinkGarnetLampBlock(FabricBlockSettings.create().mapColor(MapColor.RAW_IRON_PINK)
                     .instrument(Instrument.BASEDRUM).strength(4f).luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15 : 0)));
 
+    public static final Block CAULIFLOWER_CROP = registerBlockWithoutBlockItem("cauliflower_crop",
+            new CauliflowerCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
+
     public static final Block PINK_GARNET_DOOR = registerBlock("pink_garnet_door",
             new DoorBlock(FabricBlockSettings.copyOf(Blocks.IRON_DOOR), BlockSetType.IRON));
     public static final Block PINK_GARNET_TRAPDOOR = registerBlock("pink_garnet_trapdoor",
@@ -62,6 +66,11 @@ public class ModBlocks {
     public static final Block END_PINK_GARNET_ORE = registerBlock("end_stone_pink_garnet_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.END_STONE), UniformIntProvider.create(3, 6)));
 
+
+    private static Block registerBlockWithoutBlockItem(String name, Block block){
+        registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(MCCourse.MOD_ID, name), block);
+    }
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

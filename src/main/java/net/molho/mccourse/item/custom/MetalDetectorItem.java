@@ -9,12 +9,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.molho.mccourse.MCCourse;
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.item.ModItens;
+import net.molho.mccourse.util.InventoryUtil;
 import net.molho.mccourse.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,6 +48,9 @@ public class MetalDetectorItem extends Item {
                 if(isValuableBlock(blockState)) {
                     outputValuableCoordinates(positionClicked.down(i), player, block);
                     foundBlock = true;
+                    if(InventoryUtil.hasPlayerStackInInventory(player, ModItens.DATA_TABLET)) {
+                        addNbtDataToDataTablet(player, positionClicked.down(i), block);
+                    }
 
                     break;
                 }
@@ -62,6 +68,17 @@ public class MetalDetectorItem extends Item {
                 playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
 
         return ActionResult.SUCCESS;
+    }
+
+    private void addNbtDataToDataTablet(PlayerEntity player, BlockPos position, Block block) {
+        ItemStack dataTabletStack = player.getInventory().getStack(InventoryUtil
+                .getFirstInventoryIndex(player, ModItens.DATA_TABLET));
+
+        NbtCompound nbtData = new NbtCompound();
+        nbtData.putString("mccourse.last_valuable_found", "Valuable Found: " + block.getName().getString() + " at " +
+                "(" + position.getX() + ", " + position.getY() + ", " + position.getZ() + ")");
+
+        dataTabletStack.setNbt(nbtData);
     }
 
     /** In this part, show the text when hover the mouse over the item **/

@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.molho.mccourse.MCCourse;
+import net.molho.mccourse.blocks.ModBlocks;
 import net.molho.mccourse.item.custom.*;
 
 public class ModItens {
@@ -20,17 +21,19 @@ public class ModItens {
 
     public static final Item METAL_DETECTOR = registerItem("metal_detector",
             new MetalDetectorItem(new FabricItemSettings().maxDamage(256)));
+    public static final Item DATA_TABLET = registerItem("data_tablet",
+            new DataTabletItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item CAULIFLOWER = registerItem("cauliflower",
             new Item(new FabricItemSettings().food(ModFoodComponents.CAULIFLOWER)));
+    public static final Item CAULIFLOWER_SEEDS = registerItem("cauliflower_seeds",
+            new AliasedBlockItem(ModBlocks.CAULIFLOWER_CROP, new FabricItemSettings()));
 
     public static final Item PEAT_BRICK = registerItem("peat_brick",
             new Item(new FabricItemSettings()));
 
     public static final Item PINK_GARNET_SWORD = registerItem("pink_garnet_sword",
             new ModPoisonSwordItem(ModToolMaterial.PINK_GARNET, 2, 2f, new FabricItemSettings()));
-
-
     public static final Item PINK_GARNET_PICKAXE = registerItem("pink_garnet_pickaxe",
             new PickaxeItem(ModToolMaterial.PINK_GARNET, 1, 1f, new FabricItemSettings()));
     public static final Item PINK_GARNET_SHOVEL = registerItem("pink_garnet_shovel",
