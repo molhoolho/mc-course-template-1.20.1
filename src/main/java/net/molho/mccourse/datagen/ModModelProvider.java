@@ -44,6 +44,10 @@ public class ModModelProvider extends FabricModelProvider {
         registerCustomLamp(blockStateModelGenerator);
 
         blockStateModelGenerator.registerCrop(ModBlocks.CAULIFLOWER_CROP, CauliflowerCropBlock.AGE,0, 1, 2, 3, 4, 5, 6);
+
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.PETUNIA, ModBlocks.POT_PETUNIA, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.GEM_EMPOWERING_STATION);
     }
 
     private void registerCustomLamp(BlockStateModelGenerator blockStateModelGenerator) {
@@ -60,7 +64,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItens.CAULIFLOWER, Models.GENERATED);
         itemModelGenerator.register(ModItens.PEAT_BRICK, Models.GENERATED);
         itemModelGenerator.register(ModItens.METAL_DETECTOR, Models.GENERATED);
-        //itemModelGenerator.register(ModItens.DATA_TABLET, Models.GENERATED);
+        itemModelGenerator.register(ModItens.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
 
 
         itemModelGenerator.register(ModItens.PINK_GARNET_SWORD, Models.HANDHELD);

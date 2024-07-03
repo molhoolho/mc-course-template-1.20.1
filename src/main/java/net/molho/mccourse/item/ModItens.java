@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.molho.mccourse.MCCourse;
 import net.molho.mccourse.blocks.ModBlocks;
 import net.molho.mccourse.item.custom.*;
+import net.molho.mccourse.sound.ModSounds;
 
 public class ModItens {
 
@@ -32,6 +33,9 @@ public class ModItens {
     public static final Item PEAT_BRICK = registerItem("peat_brick",
             new Item(new FabricItemSettings()));
 
+    public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
+            new MusicDiscItem(9, ModSounds.BAR_BRAWL, new FabricItemSettings().maxCount(1), 122));
+
     public static final Item PINK_GARNET_SWORD = registerItem("pink_garnet_sword",
             new ModPoisonSwordItem(ModToolMaterial.PINK_GARNET, 2, 2f, new FabricItemSettings()));
     public static final Item PINK_GARNET_PICKAXE = registerItem("pink_garnet_pickaxe",
@@ -45,6 +49,15 @@ public class ModItens {
 
     public static final Item PINK_GARNET_PAXEL = registerItem("pink_garnet_paxel",
             new PaxelItem(ModToolMaterial.PINK_GARNET, 7, 2f, new FabricItemSettings()));
+
+    public static final Item RADIATION_STAFF = registerItem("radiation_staff",
+            new Item(new FabricItemSettings().maxCount(1)));
+
+    public static final Item PINK_GARNET_BOW = registerItem("pink_garnet_bow",
+            new BowItem(new FabricItemSettings().maxDamage(500)));
+
+    public static final Item PINK_GARNET_SHIELD = registerItem("pink_garnet_shield",
+            new ShieldItem(new FabricItemSettings().maxDamage(500)));
 
     public static final Item PINK_GARNET_HELMET = registerItem("pink_garnet_helmet",
             new ModArmorItem(ModArmorMaterial.PINK_GARNET, ArmorItem.Type.HELMET, new FabricItemSettings()));

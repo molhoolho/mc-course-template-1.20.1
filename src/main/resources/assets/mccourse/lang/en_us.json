@@ -6,6 +6,10 @@
   "item.mccourse.data_tablet": "Data Tablet",
   "item.mccourse.cauliflower": "Cauliflower",
   "item.mccourse.cauliflower_seeds": "Cauliflower Seeds",
+  "item.mccourse.petunia": "Petunia",
+  "item.mccourse.radiation_staff": "Radiation Staff",
+  "item.mccourse.pink_garnet_bow": "Pink Garnet Bow",
+  "item.mccourse.pink_garnet_shield": "Pink Garnet Shield",
 
 
   "item.mccourse.pink_garnet_sword": "Pink Garnet Sword",
@@ -19,6 +23,14 @@
   "item.mccourse.pink_garnet_chestplate": "Pink Garnet Chestplate",
   "item.mccourse.pink_garnet_leggings": "Pink Garnet Leggings",
   "item.mccourse.pink_garnet_boots": "Pink Garnet Boots",
+
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+
+  "item.mccourse.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.mccourse.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
+
 
   "item.mccourse.pink_garnet_horse_armor": "Pink Garnet Horse Armor",
 
@@ -38,10 +50,11 @@
   "block.mccourse.nether_pink_garnet_ore": "Nether Pink Garnet Ore",
   "block.mccourse.end_stone_pink_garnet_ore": "End Pink Garnet Ore",
   "block.mccourse.pink_garnet_lamp_block": "Pink Garnet Lamp Block",
+  "block.mccourse.gem_empowering_station": "Gem Empowering Station",
 
   "block.mccourse.sound_block": "Sound Block",
 
-  "tooltip.mccourse.tooltip.shift": "Press §eShift§r for more information",
+  "tooltip.mccourse.tooltip.shift": "Press §eSHIFT§r for more information",
   "tooltip.mccourse.metal_detector.tooltip": "Use this in the ground for search a valuable ore.",
   "tooltip.mccourse.soundblock.tooltip": "Click, sneak and click or walk into. Just enjoy it!",
 
@@ -50,5 +63,20 @@
   "enchantment.mccourse.lightning_striker": "Lightning Striker",
 
 
-  "item.mccourse.metal_detector.no_valuables": "No valuables found!"
+  "item.mccourse.metal_detector.no_valuables": "No valuables found!",
+
+  "sounds.mccourse.metal_detector_found_ore": "Metal Detector Found an Ore",
+
+  "painting.mccourse.world.title": "World",
+  "painting.mccourse.world.author": "NanoAttack",
+  "painting.mccourse.shrimp.title": "Shrimp",
+  "painting.mccourse.shrimp.author": "NanoAttack",
+  "painting.mccourse.saw_them.title": "Saw Them",
+  "painting.mccourse.saw_them.author": "NanoAttack",
+
+  "entity.minecraft.villager.soundmaster": "Soundmaster",
+
+  "item.mccourse.soap_water_bucket": "Soap Water Bucket",
+
+  "effect.mccourse.slimey": "Slimey"
 }

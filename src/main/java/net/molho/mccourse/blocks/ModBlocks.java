@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -12,8 +13,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.molho.mccourse.MCCourse;
 import net.molho.mccourse.blocks.custom.CauliflowerCropBlock;
+import net.molho.mccourse.blocks.custom.GemEmpoweringStation;
 import net.molho.mccourse.blocks.custom.PinkGarnetLampBlock;
 import net.molho.mccourse.blocks.custom.SoundBlock;
+import net.molho.mccourse.sound.ModSounds;
 
 public class ModBlocks {
 
@@ -45,11 +48,17 @@ public class ModBlocks {
 
 
     public static final Block PINK_GARNET_LAMP_BLOCK = registerBlock("pink_garnet_lamp_block",
-            new PinkGarnetLampBlock(FabricBlockSettings.create().mapColor(MapColor.RAW_IRON_PINK)
-                    .instrument(Instrument.BASEDRUM).strength(4f).luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15 : 0)));
+            new PinkGarnetLampBlock(FabricBlockSettings.create().mapColor(MapColor.RAW_IRON_PINK).instrument(Instrument.BASEDRUM)
+                    .strength(4f).requiresTool().luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15 : 0)
+                    .sounds(ModSounds.PINK_GARNET_LAMP_SOUNDS)));
 
     public static final Block CAULIFLOWER_CROP = registerBlockWithoutBlockItem("cauliflower_crop",
             new CauliflowerCropBlock(FabricBlockSettings.copyOf(Blocks.WHEAT)));
+
+    public static final Block PETUNIA = registerBlockWithoutBlockItem("petunia",
+            new FlowerBlock(StatusEffects.BAD_OMEN, 4, FabricBlockSettings.copyOf(Blocks.ALLIUM)));
+    public static final Block POT_PETUNIA = registerBlockWithoutBlockItem("pot_petunia",
+            new FlowerPotBlock(PETUNIA, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM)));
 
     public static final Block PINK_GARNET_DOOR = registerBlock("pink_garnet_door",
             new DoorBlock(FabricBlockSettings.copyOf(Blocks.IRON_DOOR), BlockSetType.IRON));
@@ -65,6 +74,10 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.NETHERRACK), UniformIntProvider.create(3, 6)));
     public static final Block END_PINK_GARNET_ORE = registerBlock("end_stone_pink_garnet_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.END_STONE), UniformIntProvider.create(3, 6)));
+
+
+    public static final Block GEM_EMPOWERING_STATION = registerBlock("gem_empowering_station",
+            new GemEmpoweringStation(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block){

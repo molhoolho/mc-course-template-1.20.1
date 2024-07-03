@@ -2,7 +2,6 @@ package net.molho.mccourse.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -27,6 +26,10 @@ public class ModItemGroup {
 
 
                         entries.add(ModItens.PEAT_BRICK);
+                        entries.add(ModItens.BAR_BRAWL_MUSIC_DISC);
+                        entries.add(ModItens.RADIATION_STAFF);
+                        entries.add(ModItens.PINK_GARNET_BOW);
+                        entries.add(ModItens.PINK_GARNET_SHIELD);
 
                         entries.add(ModItens.METAL_DETECTOR);
                         entries.add(ModItens.DATA_TABLET);
@@ -50,6 +53,9 @@ public class ModItemGroup {
                         entries.add(ModBlocks.END_PINK_GARNET_ORE);
                         entries.add(ModBlocks.SOUND_BLOCK);
                         entries.add(ModBlocks.PINK_GARNET_LAMP_BLOCK);
+                        entries.add(ModBlocks.GEM_EMPOWERING_STATION);
+
+                        entries.add(ModBlocks.PETUNIA);
 
 
                         entries.add(ModItens.PINK_GARNET_HELMET);

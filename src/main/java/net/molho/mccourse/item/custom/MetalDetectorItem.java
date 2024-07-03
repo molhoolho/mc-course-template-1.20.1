@@ -10,6 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.BlockStateParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -17,6 +21,7 @@ import net.minecraft.world.World;
 import net.molho.mccourse.MCCourse;
 import net.molho.mccourse.blocks.ModBlocks;
 import net.molho.mccourse.item.ModItens;
+import net.molho.mccourse.sound.ModSounds;
 import net.molho.mccourse.util.InventoryUtil;
 import net.molho.mccourse.util.ModTags;
 import org.jetbrains.annotations.Nullable;
@@ -52,6 +57,10 @@ public class MetalDetectorItem extends Item {
                         addNbtDataToDataTablet(player, positionClicked.down(i), block);
                     }
 
+                    spawnFoundParticles(context, positionClicked, blockState);
+
+                    context.getWorld().playSound(null, positionClicked, ModSounds.METAL_DETECTOR_FOUND_ORE,
+                            SoundCategory.BLOCKS, 1f, 1f);
                     break;
                 }
             }
@@ -68,6 +77,16 @@ public class MetalDetectorItem extends Item {
                 playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
 
         return ActionResult.SUCCESS;
+    }
+
+    private void spawnFoundParticles(ItemUsageContext context, BlockPos positionClicked, BlockState blockState) {
+        for(int i = 0; i < 20; i++) {
+            ServerWorld world = ((ServerWorld) context.getWorld());
+
+            world.spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, blockState),
+                    positionClicked.getX() + 0.5d, positionClicked.getY() + 1, positionClicked.getZ() + 0.5d, 2,
+                    Math.cos(i * 18) * 0.25d, 0.15d, Math.sin(i * 18) * 0.25d, 5f);
+        }
     }
 
     private void addNbtDataToDataTablet(PlayerEntity player, BlockPos position, Block block) {
