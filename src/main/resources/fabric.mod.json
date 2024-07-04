@@ -23,6 +23,9 @@
 		],
 		"client": [
 			"net.molho.mccourse.MCCourseModClient"
+		],
+		"rei_client": [
+			"net.molho.mccourse.compat.MCCourseModREIClientPlugin"
 		]
 	},
 	"mixins": [
