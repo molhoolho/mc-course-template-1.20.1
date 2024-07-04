@@ -10,6 +10,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.datagen.recipe.GemEmpoweringRecipeBuilder;
 import net.molho.mccourse.item.ModItens;
 
 import java.awt.*;
@@ -56,5 +57,17 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.PINK_GARNET_BUTTON)));
 
         offerWallRecipe(exporter, RecipeCategory.MISC, ModBlocks.PINK_GARNET_WALL, ModItens.PINK_GARNET);
+
+        new GemEmpoweringRecipeBuilder(ModItens.RAW_PINK_GARNET, ModItens.PINK_GARNET, 3)
+                .criterion(hasItem(ModItens.RAW_PINK_GARNET), conditionsFromItem(ModItens.PINK_GARNET))
+                .offerTo(exporter);
+
+        new GemEmpoweringRecipeBuilder(Items.COAL, Items.DIAMOND, 7)
+                .criterion(hasItem(Items.COAL), conditionsFromItem(Items.DIAMOND))
+                .offerTo(exporter);
+
+        new GemEmpoweringRecipeBuilder(Items.STICK, Items.END_ROD, 2)
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.END_ROD))
+                .offerTo(exporter);
     }
 }

@@ -12,6 +12,7 @@ import net.molho.mccourse.item.ModItens;
 import net.molho.mccourse.paiting.ModPaintings;
 import net.molho.mccourse.particle.ModParticles;
 import net.molho.mccourse.potion.ModPotion;
+import net.molho.mccourse.recipe.ModRecipes;
 import net.molho.mccourse.screen.ModScreenHandlers;
 import net.molho.mccourse.sound.ModSounds;
 import net.molho.mccourse.util.ModLootTableModifiers;
@@ -43,5 +44,7 @@ public class MCCourse implements ModInitializer {
 		ModFluids.registerFluids();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandler();
+
+		ModRecipes.registerRecipes();
 	}
 }
