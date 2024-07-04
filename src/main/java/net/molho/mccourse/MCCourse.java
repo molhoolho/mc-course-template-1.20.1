@@ -3,6 +3,7 @@ package net.molho.mccourse;
 import net.fabricmc.api.ModInitializer;
 
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.blocks.entity.ModBlockEntities;
 import net.molho.mccourse.effects.ModEffects;
 import net.molho.mccourse.enchantment.ModEnchantments;
 import net.molho.mccourse.fluid.ModFluids;
@@ -11,6 +12,7 @@ import net.molho.mccourse.item.ModItens;
 import net.molho.mccourse.paiting.ModPaintings;
 import net.molho.mccourse.particle.ModParticles;
 import net.molho.mccourse.potion.ModPotion;
+import net.molho.mccourse.screen.ModScreenHandlers;
 import net.molho.mccourse.sound.ModSounds;
 import net.molho.mccourse.util.ModLootTableModifiers;
 import net.molho.mccourse.util.ModRegistries;
@@ -39,5 +41,7 @@ public class MCCourse implements ModInitializer {
 		ModParticles.registerParticles();
 		ModVillagers.registerVillagers();
 		ModFluids.registerFluids();
+		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandler();
 	}
 }

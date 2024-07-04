@@ -8,12 +8,15 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.impl.client.model.ModelLoadingRegistryImpl;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.ModelIdentifier;
 import net.molho.mccourse.blocks.ModBlocks;
 import net.molho.mccourse.fluid.ModFluids;
 import net.molho.mccourse.particle.ModParticles;
 import net.molho.mccourse.particle.PinkGarnetParticle;
+import net.molho.mccourse.screen.GemEmpoweringScreen;
+import net.molho.mccourse.screen.ModScreenHandlers;
 import net.molho.mccourse.util.ModModelPredicateProvider;
 
 public class MCCourseModClient implements ClientModInitializer {
@@ -36,5 +39,8 @@ public class MCCourseModClient implements ClientModInitializer {
                 ModFluids.STILL_SOAP_WATER, ModFluids.FLOWING_SOAP_WATER);
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(MCCourse.MOD_ID, "radiation_staff_3d", "inventory"));
+
+        HandledScreens.register(ModScreenHandlers.GEM_EMPOWERING_SCREEN_HANDLER, GemEmpoweringScreen::new);
+
     }
 }
