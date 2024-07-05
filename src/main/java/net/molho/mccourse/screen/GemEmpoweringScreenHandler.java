@@ -18,7 +18,7 @@ public class GemEmpoweringScreenHandler extends ScreenHandler {
 
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    private final GemEmpoweringStationBlockEntity blockEntity;
+    final GemEmpoweringStationBlockEntity blockEntity;
 
 
     protected GemEmpoweringScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {

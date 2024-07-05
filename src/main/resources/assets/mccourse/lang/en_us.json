@@ -78,5 +78,8 @@
 
   "item.mccourse.soap_water_bucket": "Soap Water Bucket",
 
+  "mccourse.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "mccourse.tooltip.liquid.amount": "%s mB",
+
   "effect.mccourse.slimey": "Slimey"
 }
