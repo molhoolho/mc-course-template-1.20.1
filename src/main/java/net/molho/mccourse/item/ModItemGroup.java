@@ -57,6 +57,16 @@ public class ModItemGroup {
 
                         entries.add(ModBlocks.PETUNIA);
 
+                        entries.add(ModBlocks.DRIFTWOOD_SAPLING);
+                        entries.add(ModBlocks.DRIFTWOOD_LEAVES);
+                        entries.add(ModBlocks.DRIFTWOOD_LOG);
+                        entries.add(ModBlocks.DRIFTWOOD_PLANKS);
+                        entries.add(ModBlocks.DRIFTWOOD_WOOD);
+                        entries.add(ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+                        entries.add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+
+                        entries.add(ModItens.PORCUPINE_SPAWN_EGG);
+
 
                         entries.add(ModItens.PINK_GARNET_HELMET);
                         entries.add(ModItens.PINK_GARNET_CHESTPLATE);

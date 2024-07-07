@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.molho.mccourse.MCCourse;
 import net.molho.mccourse.blocks.ModBlocks;
+import net.molho.mccourse.entity.ModEntities;
 import net.molho.mccourse.item.custom.*;
 import net.molho.mccourse.sound.ModSounds;
 
@@ -70,6 +71,9 @@ public class ModItens {
 
     public static final Item PINK_GARNET_HORSE_ARMOR = registerItem("pink_garnet_horse_armor",
             new HorseArmorItem(14, "pink_garnet", new FabricItemSettings()));
+
+    public static final Item PORCUPINE_SPAWN_EGG = registerItem("porcupine_spawn_egg",
+            new SpawnEggItem(ModEntities.PORCUPINE, 0xa86518, 0x3b260f, new FabricItemSettings()));
 
     //One of facilitators
     private static Item registerItem(String name, Item item){

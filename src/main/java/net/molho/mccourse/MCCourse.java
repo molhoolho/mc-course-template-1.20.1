@@ -18,6 +18,7 @@ import net.molho.mccourse.sound.ModSounds;
 import net.molho.mccourse.util.ModLootTableModifiers;
 import net.molho.mccourse.util.ModRegistries;
 import net.molho.mccourse.villager.ModVillagers;
+import net.molho.mccourse.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,5 +47,7 @@ public class MCCourse implements ModInitializer {
 		ModScreenHandlers.registerScreenHandler();
 
 		ModRecipes.registerRecipes();
+
+		ModWorldGeneration.generateModWorldGeneration();
 	}
 }

@@ -17,6 +17,7 @@ import net.molho.mccourse.blocks.custom.GemEmpoweringStation;
 import net.molho.mccourse.blocks.custom.PinkGarnetLampBlock;
 import net.molho.mccourse.blocks.custom.SoundBlock;
 import net.molho.mccourse.sound.ModSounds;
+import net.molho.mccourse.world.tree.DriftwoodSaplingGenerator;
 
 public class ModBlocks {
 
@@ -78,6 +79,24 @@ public class ModBlocks {
 
     public static final Block GEM_EMPOWERING_STATION = registerBlock("gem_empowering_station",
             new GemEmpoweringStation(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+
+
+    public static final Block DRIFTWOOD_LOG = registerBlock("driftwood_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).strength(4f)));
+    public static final Block DRIFTWOOD_WOOD = registerBlock("driftwood_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).strength(4f)));
+    public static final Block STRIPPED_DRIFTWOOD_LOG = registerBlock("stripped_driftwood_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG).strength(4f)));
+    public static final Block STRIPPED_DRIFTWOOD_WOOD = registerBlock("stripped_driftwood_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).strength(1f)));
+
+    public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling",
+            new SaplingBlock(new DriftwoodSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).strength(1f)));
+
+    public static final Block DRIFTWOOD_PLANKS = registerBlock("driftwood_planks",
+            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(4f)));
+    public static final Block DRIFTWOOD_LEAVES = registerBlock("driftwood_leaves",
+            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).strength(4f)));
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block){

@@ -1,5 +1,8 @@
 package net.molho.mccourse.blocks.entity;
 
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
@@ -22,6 +25,7 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -30,6 +34,7 @@ import net.minecraft.world.World;
 import net.molho.mccourse.blocks.custom.GemEmpoweringStation;
 import net.molho.mccourse.fluid.ModFluids;
 import net.molho.mccourse.item.ModItens;
+import net.molho.mccourse.networking.ModMessages;
 import net.molho.mccourse.recipe.GemEmpoweringRecipe;
 import net.molho.mccourse.screen.GemEmpoweringScreenHandler;
 import org.jetbrains.annotations.Nullable;
@@ -74,6 +79,38 @@ public class GemEmpoweringStationBlockEntity extends BlockEntity implements Exte
                 return 2;
             }
         };
+    }
+
+    public ItemStack getRenderStack() {
+        if(this.getStack(OUTPUT_SLOT).isEmpty()) {
+            return this.getStack(INPUT_SLOT);
+        } else {
+            return this.getStack(OUTPUT_SLOT);
+        }
+    }
+
+    @Override
+    public void markDirty() {
+        if(!world.isClient()) {
+            PacketByteBuf data = PacketByteBufs.create();
+            data.writeInt(inventory.size());
+            for(int i = 0; i < inventory.size(); i++) {
+                data.writeItemStack(inventory.get(i));
+            }
+            data.writeBlockPos(getPos());
+
+            for(ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
+                ServerPlayNetworking.send(player, ModMessages.ITEM_SYNC, data);
+            }
+        }
+
+        super.markDirty();
+    }
+
+    public void setInventory(DefaultedList<ItemStack> list) {
+        for(int i = 0; i < list.size(); i++) {
+            this.inventory.set(i, list.get(i));
+        }
     }
 
 
@@ -262,11 +299,6 @@ public class GemEmpoweringStationBlockEntity extends BlockEntity implements Exte
             try(Transaction transaction = Transaction.openOuter()) {
                 this.energyStorage.insert(150, transaction);
                 transaction.commit();
-                try {
-                    Thread.sleep(900);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 this.removeStack(ENERGY_ITEM_SLOT, 1);
             }
         }
@@ -348,6 +380,7 @@ public class GemEmpoweringStationBlockEntity extends BlockEntity implements Exte
     public NbtCompound toInitialChunkDataNbt() {
         return createNbt();
     }
+
 
 
 }

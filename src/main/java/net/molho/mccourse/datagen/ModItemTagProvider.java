@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.molho.mccourse.blocks.ModBlocks;
 import net.molho.mccourse.item.ModItens;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,5 +22,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
                 .add(ModItens.BAR_BRAWL_MUSIC_DISC);
+
+        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.DRIFTWOOD_LOG.asItem(), ModBlocks.STRIPPED_DRIFTWOOD_LOG.asItem(),
+                        ModBlocks.DRIFTWOOD_WOOD.asItem(), ModBlocks.STRIPPED_DRIFTWOOD_WOOD.asItem());
+
+        getOrCreateTagBuilder(ItemTags.PLANKS)
+                .add(ModBlocks.DRIFTWOOD_PLANKS.asItem());
     }
 }
